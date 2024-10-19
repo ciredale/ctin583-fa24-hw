@@ -1,0 +1,229 @@
+﻿title: Start
+---
+<<camera Title>>
+<<fadeIn>>
+<<wait 2>>
+<<fadeOut>>
+<<camera Corridor>>
+<<fadeIn>>
+
+Player: Another day in Space Fleet. #line:00c143c 
+Player: Today's my rotation to Engineering. I hate Engineering. #line:06a2e16 
+Player: All I dream of is going on an away mission. #line:098f670 
+Player: I wonder what I should do?  #line:01f76c1 
+
+    -> Go and talk to the Captain #line:08c935a 
+        <<jump TalkToCaptain>>
+    -> Go see the Engineer as per orders #line:0dca6c6 
+        <<jump TalkToEngineer>>
+    -> Meet up with your friend #line:095f10f 
+        <<jump TalkToCrewmate>>
+===
+title: TalkToEngineer
+---
+<<fadeOut>>
+<<place Engineer Corridor Left>>
+<<pose Engineer hand-on-hip>>
+<<expression Engineer angry>>
+<<fadeIn>>
+
+Engineer: Look who turned up. #line:0f36193 
+Engineer: Honestly, you never feel like you want to be here.  #line:001d422 
+Engineer: What's your problem? #line:0c43413 
+    -> I slept in. #line:059424a 
+        Engineer: Some of us have a job to do. #line:0be9f05 
+    -> I hate engines. #line:0c10422 
+        Engineer: I trained as a cook. I'm meant to be slinging Space Paste™, not repairing.. whatever this is. #line:04c256a 
+        Player: ... an engine. It's an engine. #line:02bae7b 
+        Engineer: Right, yes, I'm meant to be cooking, not repairing engines. Sorry forgot for a sec. #line:0e3a46b 
+    -> I have an overwhelming attraction to engines. #line:036da66 
+        Engineer: It'll never love you back. Trust me, we've all been there. #line:03fc64c 
+Engineer: Anyway, the engine is busted. The... juice.... is full, but it won't go anywhere. #line:0f12c7b 
+<<pose Engineer arms-out>>
+Engineer: The whole ship is falling apart. #line:0175b5b 
+<<pose Engineer hand-on-hip>>
+Engineer: We should never have sold the Space Fleet to Space Paste™ Incorporated.  #line:0752331 
+Engineer: Can you pass me a... #line:0915baa 
+<<pose Engineer neutral>>
+<<expression Engineer surprised>>
+Intercom: Alert. Alert. Senior staff to the bridge. #line:060ee3d 
+Engineer: What now? Probably need someone to fill in for the cook again.  #line:0a55fcd 
+<<expression Engineer angry>>
+Engineer: Seeing as how I'm the cook. And I'm also the Senior Engineer. Hah. #line:033de73 
+Player: See ya later.. #line:01f9bd8 
+Engineer: I'm coming too! If there's excitement I want to be there. #line:053abd0 
+Engineer: So I know what I'm running away from... #line:056c519 
+
+<<jump BridgeEnding>>
+===
+title: TalkToCrewmate
+---
+<<fadeOut>>
+<<place Crewmate Corridor Center>>
+<<fadeIn>>
+
+Player: Hey! Do you have any more Space Paste™ left over in your rations? #line:0530b67 
+Crewmate: You're meant to be in Engineering. You can't have any more Space Paste™.  #line:0d5e303 
+Crewmate: What happened to your ration? #line:0bfadfb 
+<<pose Crewmate hand-on-hip>>
+<<expression Crewmate smirk>>
+Crewmate: You're just slacking off again aren't you?  #line:00d614a 
+Player: No, I thirst for Space Paste™. #line:0f7e299 
+Crewmate: You... thirst for food? #line:005d8da 
+Player: Well, uh, I hunger for it. #line:0572ee8 
+Crewmate: Pity we don't have a cook anymore. Anyway... #line:0c32bf9 
+<<pose Crewmate neutral>>
+<<expression Crewmate surprised>>
+Intercom: Alert. Alert. Senior staff to the bridge. #line:0737a55 
+Player: Oh no! Gotta go! Can I PLEASE have your Space Paste™ ration? #line:0a520ee 
+Crewemate: Oh, fine. It's just beef-flavoured toothpaste, you know... #line:04dc11b 
+Player: Oh, I know. #line:06370cb 
+
+<<jump BridgeEnding>>
+===
+title: TalkToCaptain
+---
+<<fadeOut>>
+<<place Captain Corridor Right>>
+<<fadeIn>>
+
+Captain: What's up? You're meant to be in Engineering today! #line:042fcc3 
+Player: Uh, yeah, but I want to go to on an away mission. #line:0f5a5ee 
+Captain: Hmm! Why do you want to go on an away mission? #line:0930502 
+    -> I hunger for danger. #line:0b32c68 
+        Captain: That's reasonable. It's why we're all here after all. On this space ship.  #line:022aa2a 
+    -> I only feel alive when I'm threatened. #line:080d553 
+        Captain: How unhealthy. Have you considered talking to a counselor? #line:04f735a 
+            -> That sounds really useful actually... #line:0525fd9 
+                Captain: Just kidding. We don't have a counselor.  #line:0c22a1d 
+                    -> We probably should. #line:0cc984b 
+                        Captain: The forms to request a new one are just too long to bother with. #line:0c8acd5 
+                    -> Why not? #line:0a251d7 
+                        Captain: Well.. there was an incident. Don't worry about it. #line:0efe034 
+            -> I did. They told me that trait was a useful asset to the fleet. #line:05c298d 
+                Captain: I mean, fair enough. #line:0bdfbc2 
+    -> Working in Engineering is booooring. #line:07ab892 
+        Captain: Would it be more interesting if I left you in the airlock all day? #line:0093fd9 
+            -> Fair enough. #line:0f396a3 
+                Captain: It is fair enough. I'm the captain! #line:0eb984d 
+            -> Maybe I'd like the airlock... #line:06cf782 
+                Captain: You've got problems. #line:088faf5 
+                Player: Tell me about it. #line:03f2bf5 
+Captain: Anyway, you want to go on an away mission? Really? #line:0a0562c 
+    -> Yes. #line:02bf11f 
+        Captain: You're pretty desperate, aren't you... #line:0048618 
+    -> PLEASE! I NEED THIS! #line:04be100 
+        Captain: Oh, sure, sure. OK, I'll consider it. #line:0c6bc6c 
+        <<set $away_mission_readiness += 1>>
+Captain: But really, Space Law is pretty clear on the matter. You're too junior for away missions. #line:0bb2b48 
+    -> I'll give you some of my Space Paste™, the tasty treat we all love. For every meal. #line:0f4f682 
+        <<set $away_mission_readiness += 1>>
+        Captain: That's pretty compelling. I love Space Paste™. #line:0688281 
+        Captain: I'll think about it. #line:0702a16 
+    -> I'll stop stealing chicken soup from the vending machines. #line:091b978 
+        Captain: That was you? I knew it! #line:0f20530 
+        Player: It tastes like orange juice anyway. #line:08dbbb0 
+        Captain: Tempting offer, but not really helpful. #line:0d45e98 
+    -> What would it take? #line:07f7d43 
+        Captain: I want for nothing. #line:0fe56a7 
+        Player: Ah. #line:0adc1d5 
+Captain: Look, it's a busy day. Engineering has lots that needs doing. #line:082b5a3 
+Captain: Our Chief Engineer is a Cook, and really shouldn't be there.  #line:0b3091f 
+Captain: ... which means there's even more to do than should be. #line:0d0287d 
+Captain: I can't spare you for away missions today. #line:0014bf7 
+    -> I'll cause more trouble than it's worth in Engineering... #line:0949afc 
+        Captain: You will? #line:086731c 
+        Player: That's not a threat. I'm just... well.. total rubbish. #line:00d362e 
+        Captain: Hmm. Look, I will really think about it. #line:01d5c23 
+        <<set $away_mission_readiness += 1>>
+        Player: It really wasn't a threat.  #line:01d8115 
+        Player: But.. thanks! Means a lot. #line:09bb90b 
+        Captain: Does it?   #line:047dd17 
+            -> Uh, yes? #line:0dc7655 
+                Captain: Are we friends? I've never had a friend. #line:0b9ec20 
+                Player: Sure, why not. #line:07fe3b1 
+                <<set $captain_is_friend to true>>
+            -> Not really. I just really want to go on an away mission. #line:0b988a0 
+                Player: You don't actually mean much to me. #line:0e0c998 
+                Player: And this is just another day. #line:0da75d6 
+                Captain: Ah. Well then. #line:003d0ce 
+                <<set $captain_is_friend to false>>
+        Player: Anyway... #line:0554fc2 
+    -> There's none coming up? #line:06713e3 
+        Captain: We're in deep space. #line:0aea650 
+        Captain: We last saw a planet five days ago. #line:0d6c929 
+        Captain: Where would I even send you? #line:0ba18e7 
+        Captain: It's not like a pirate ship is going to pull up alongside us. #line:0944812 
+        Captain: ... #line:05d6956 
+Captain: I feel a great sense of foreboding. #line:059a79b 
+<<place Engineer Corridor Left>>
+<<expression Engineer angry>>
+Engineer: Hey! Why aren't you in Engineering? #line:05c6e35 
+Captain: Hmm, what's that noise. Something is going on... #line:036f35c 
+
+<<jump BridgeEnding>>
+===
+title: BridgeEnding
+---
+
+// We're not currently on the bridge. Fade out, go there, and set up
+// our characters before we fade in.
+<<fadeOut>>
+<<camera Bridge>>
+<<place Engineer Bridge Left>>
+<<place Crewmate Bridge Center>>
+<<place Captain Bridge Right>>
+<<pose Engineer hands-on-hips>>
+<<expression Engineer angry>>
+<<pose Captain hand-at-mouth>>
+<<expression Captain angry>>
+<<expression Crewmate surprised>>
+
+<<fadeIn>>
+
+Captain: We're totally doomed. It's the Space Pirates! #line:0b04ca7 
+Engineer: We have to do something! Where's the escape pods? #line:0622484 
+
+<<if $away_mission_readiness < 2>>
+    // We haven't persuaded the captain to take us
+    <<expression Crewmate happy>>
+    Crewmate: Take me to fight the pirates! I was made for this! #line:087caf4 
+    Captain: I was just about to call you! #line:03e7e7f 
+    <<expression Crewmate smirk>>
+    <<pose Crewmate hand-on-hip>>
+    Crewmate: I used to be a space pirate! I know their tactics! #line:07c61eb 
+    Crewmate: And I definitely don't want to desert, giving them all your secrets! #line:05b7e04 
+    <<pose Captain pointing>>
+    Captain: Good enough for me! Off you go! #line:070e100 
+    Player: Damn, I missed my chance! Well, better them than me. #line:0388f2e 
+<<else>>
+    // We've persuaded the captain to take us
+    Player: Now's my chance! Take me to fight the pirates! #line:09ccf05 
+    <<pose Captain pointing>>
+    <<expression Captain smirk>>
+    Captain: Oh, you've convinced me. #line:087aefe 
+    Captain: I swear... if you die a hero... #line:0aa90f8 
+        -> I promise to use my last breath to give all the credit to you. #line:019e310 
+            <<expression Captain happy>>
+            Captain: Aw, that's so sweet. Thank you. #line:01ebaf1 
+            Engineer: Me too? Can I have some credit? #line:0e729f4 
+            <<expression Captain neutral>>
+                -> No. You're pathetic. #line:02e5fea 
+                    Engineer: Yeah... you're right. Sorry for asking. #line:02b0360 
+                -> Of course! Credit for everyone! #line:0734e31 
+                    <<pose Engineer arms-out>>
+                    <<expression Engineer happy>>
+                    Engineer: Finally, I could be a cook again! #line:018802c 
+                    <<pose Engineer neutral>>
+                    <<expression Engineer neutral>>
+        -> Better me than you. #line:0ae9661 
+            Captain: Good point. Off you go. #line:0f04664 
+    <<if $captain_is_friend>>
+        Captain: I'll miss you if you die... friend. #line:0d830d8 
+    <<else>>
+        Captain: I'm sure somebody will miss you if you die. #line:0113b97 
+    <<endif>>
+<<endif>>
+<<fadeOut>>
+THE END #line:0b345da 
+===
