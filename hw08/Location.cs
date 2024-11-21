@@ -10,5 +10,8 @@ public class Location : MonoBehaviour {
             return null;           
         }
         return marker;
+
+
+        
     }
 }
